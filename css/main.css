@@ -16,10 +16,15 @@ h1 {
   text-align: center;
 }
 
-/* img {
-  width: 5%;
-  float: left;
-} */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  color: white;
+  margin: 110px;
+}
 
 
 
