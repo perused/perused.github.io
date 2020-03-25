@@ -27,14 +27,12 @@ h1 {
   margin: 40px;
   width: 200px;
   height: 150px;
-  background: white;
+  background: #b0b0b0;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px grey;
+  box-shadow: 5px 5px 5px #636363;
 }
 
 .item:hover {
   background: grey;
+  box-shadow: 7.5px 7.5px 7.5px #636363;
 }
-
-
-
