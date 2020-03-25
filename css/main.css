@@ -30,9 +30,12 @@ h1 {
   background: #b0b0b0;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #636363;
+  opacity: 0.9;
+  transition: 0.3s;
 }
 
 .item:hover {
+  opacity: 1;
   background: grey;
   box-shadow: 7.5px 7.5px 7.5px #636363;
 }
