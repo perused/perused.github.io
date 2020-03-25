@@ -37,9 +37,8 @@ img {
 }
 
 h1 {
-  font: 3vw "Roboto Thin", sans-serif;
+  font: 10vw "Roboto Thin", sans-serif;
   /* font-family: 3em "Roboto Thin", sans-serif; */
   text-align: center;
-  padding-top: 1.5em;
-  font-size: 7em !important;
+  /* padding-top: 1.5em; */
 }
