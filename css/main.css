@@ -1,0 +1,45 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  width: 5%;
+  float: left;
+}
+
+.container {
+  margin-top: 2.5em !important;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.list-group {
+  display: block;
+  border-radius: 20px !important;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1.5em;
+}
+
+.navbar a:hover {
+  color: grey;
+}
+
+@font-face {
+  font-family: "Roboto Thin";
+  src: url("/static/fonts/Roboto-Thin.ttf");
+}
+
+h1 {
+  font: 3vw "Roboto Thin", sans-serif;
+  /* font-family: 3em "Roboto Thin", sans-serif; */
+  text-align: center;
+  padding-top: 1.5em;
+  font-size: 7em !important;
+}
