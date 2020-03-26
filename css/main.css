@@ -39,3 +39,27 @@ h1 {
   background: grey;
   box-shadow: 7.5px 7.5px 7.5px #636363;
 }
+
+#download {
+  width: 50%;
+  margin-left: 50px;
+  margin-top: 15px
+}
+
+#mail {
+  width: 50%;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+#github {
+  width: 50%;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+#projects {
+  width: 50%;
+  margin-left: 50px;
+  margin-top: 10px;
+}
