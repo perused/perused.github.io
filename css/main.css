@@ -26,6 +26,8 @@ p {
   color: white;
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 20px !important;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .flex-container {
