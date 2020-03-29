@@ -19,6 +19,8 @@ h1 {
 
 p {
   color: white;
+  font-family: "EB Garamond";
+  font-size: 20px;
 }
 
 .flex-container {
@@ -48,6 +50,14 @@ img {
   width: 50%;
   margin-left: 50px;
   margin-top: 20px;
+}
+
+.jeff {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 30px;
+  height: auto;
 }
 
 #projects {
