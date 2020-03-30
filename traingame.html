@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
 
@@ -16,7 +17,28 @@
       <a class="item" href="./index.html" title="Go Home"><img id="home" src="./img/home.png"></a>
     </div>
 
-    <p>Train game goes here</p>
+    <!-- do some js form validation -->
+    <form>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="number">
+            <input type="number" class=".col-sm" placeholder="" autofocus required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);">
+          </div>
+          <div class="number">
+            <input type="number" class=".col-sm" placeholder="" autofocus required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);">
+          </div>
+          <div class="number">
+            <input type="number" class=".col-sm" placeholder="" autofocus required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);">
+          </div>
+          <div class="number">
+            <input type="number" class=".col-sm" placeholder="" autofocus required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="limitText(this,1);" onKeyUp="limitText(this,1);">
+          </div>
+        </div>
+        <div class="number">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
 
   </body>
 </html>

@@ -74,6 +74,7 @@ img {
 .tooltip-wrap {
   position: relative;
 }
+
 .tooltip-wrap .tooltip-content {
   display: none;
   position: absolute;
@@ -83,6 +84,29 @@ img {
   background-color: #fff;
   padding: .5em;
 }
+
 .tooltip-wrap:hover .tooltip-content {
   display: block;
+}
+
+.number {
+  margin: 10px;
+}
+
+/* hiding arrows/spinners from input boxes */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  font-size: 6vw;
+  border: 2px solid grey;
+  border-radius: 4px;
+  width: 50px
 }
