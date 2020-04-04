@@ -33,3 +33,15 @@ function validate(cur, nextNo) {
 
   return;
 }
+
+function submitNums(cur) {
+
+  var a = parseInt(cur.num0.value);
+  var b = parseInt(cur.num0.value);
+  var c = parseInt(cur.num0.value);
+  var d = parseInt(cur.num0.value);
+
+
+  console.log(cur);
+
+}
