@@ -6,19 +6,16 @@ function goBack(cur, prevNo) {
 
   if (curLength == 1) {
     cur.value = "";
-    // return;
 
-  } else if (prevNo == -1) {
-    return;
-
-  } else if( key == 8 || key == 46 ) {
+  } else if( (key == 8 || key == 46) && prevNo != -1 ) {
     // focus on previous input box
-    var prevId = "num" + prevNo;
-    var prev = document.getElementById(prevId);
-    prev.focus();
+    document.getElementById("num" + prevNo).focus();
   }
+
+  return;
 }
 
+// using .onKeyUp, validate input and go to next input box
 function validate(cur, nextNo) {
 
   var focusNext = true;
@@ -30,23 +27,9 @@ function validate(cur, nextNo) {
 
   cur.value = cur.value.substring(0, 1);
 
-  var curLength = cur.value.length;
-
-  if (curLength == 1 && focusNext == true) {
-    nextFocus(cur, nextNo);
+  if (cur.value.length == 1 && focusNext == true) {
+    document.getElementById("num" + nextNo).focus();
   }
 
   return;
-}
-
-function nextFocus(cur, nextNo) {
-
-  nextNo = parseInt(nextNo);
-  var nextId;
-  var next;
-
-  nextId = "num" + nextNo; // submit is num4
-  next = document.getElementById(nextId);
-  next.focus();
-
 }
