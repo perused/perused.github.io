@@ -127,6 +127,6 @@ input[type=number] {
 }
 
 iframe {
-  margin-left: 35%;
-  margin-right: 35%;
+  margin-left: 35% !important;
+  margin-right: 35% !important;
 }
