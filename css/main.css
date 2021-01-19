@@ -125,3 +125,8 @@ input[type=number] {
   width: 20%;
   height: 75%;
 }
+
+iframe {
+  margin-left: 35%;
+  margin-right: 35%;
+}
