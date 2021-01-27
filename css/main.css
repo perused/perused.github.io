@@ -1,7 +1,8 @@
 body {
   height: 100%;
   width: 100%;
-  background-image: url("../img/y-so-serious.png");
+  /* background-image: url("../img/wall5.jpg"); */
+  background-image: url("../img/wall2.png");
 }
 
 @font-face {
