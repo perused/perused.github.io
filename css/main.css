@@ -64,8 +64,6 @@ p {
 
 img {
   width: 50%;
-  margin-left: 50px;
-  margin-top: 20px;
 }
 
 .jeff {
@@ -76,8 +74,34 @@ img {
   height: auto !important;
 }
 
+iframe {
+  width: 40% !important;
+  margin-left: 20% !important;
+  margin-right: 20% !important;
+  margin-bottom: 30px !important;
+  height: 60% auto !important;
+}
+
+#download {
+  height: 80%;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 8%;
+}
+
+#mail {
+  margin-left: 25%;
+  margin-top: 15%;
+}
+
+#github {
+  margin-left: 25%;
+  margin-top: 8%;
+}
+
 #projects {
-  margin-top: 10px;
+  margin-left: 25%;
+  margin-top: 8%;
 }
 
 .tooltip-wrap {
@@ -125,9 +149,4 @@ input[type=number] {
   margin-top: 2%;
   width: 20%;
   height: 75%;
-}
-
-iframe {
-  margin-left: 35% !important;
-  margin-right: 35% !important;
 }
