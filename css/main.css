@@ -104,6 +104,11 @@ iframe {
   margin-top: 8%;
 }
 
+.project-icon {
+  margin-left: 25%;
+  margin-top: 10%;
+}
+
 .tooltip-wrap {
   position: relative;
 }
