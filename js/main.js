@@ -74,6 +74,11 @@ function sitch_one(nums, i, string, ans) {
     if (ans == 10) {
 
       console.log(string);
+      var newResult = document.createElement("li");
+      var newResultValue = document.createTextNode(string);
+      newResult.appendChild(newResultValue);
+      var results = document.getElementById("results");
+      results.appendChild(newResult);
 
     } else {
 
