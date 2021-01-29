@@ -38,9 +38,6 @@ function validate(cur, nextNo) {
   return;
 }
 
-// activate bootstrap modal
-
-
 // display in bootstrap modal?
 function submitNums(cur) {
 
@@ -51,12 +48,13 @@ function submitNums(cur) {
 
   var nums = [a, b, c, d];
 
-  // var modal = document.getElementById("modal"); // update with answers
-
+  
   sitch_one(nums, 1, a, a);
   // sitch_two(nums, 0, "", 0);
   // sitch_three(nums, 0, "", 0);
   // sitch_four(nums, 0, "", 0);
+  
+  $('#exampleModal').modal('toggle');
 
 }
 
