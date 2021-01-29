@@ -14,7 +14,7 @@
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
 
   </head>
-  <body>
+  <body onload="initForm();">
 
     <h1>Train Game</h1>
     <h2 style="color: white; text-align: center;">In Progress</h2>
@@ -25,7 +25,7 @@
     </div>
 
     <!-- do some js form validation -->
-    <form onsubmit="submitNums(this)">
+    <form id="trainForm" onsubmit="submitNums(this);">
       <div class="container">
         <div class="row justify-content-center">
           <div class="number">
@@ -47,11 +47,11 @@
       </div>
     </form>
 
-    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Results</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

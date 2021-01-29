@@ -38,6 +38,14 @@ function validate(cur, nextNo) {
   return;
 }
 
+function initForm() {
+
+  $("#trainForm").submit(function(e) {
+    e.preventDefault();
+  });
+
+}
+
 // display in bootstrap modal?
 function submitNums(cur) {
 
@@ -54,7 +62,8 @@ function submitNums(cur) {
   // sitch_three(nums, 0, "", 0);
   // sitch_four(nums, 0, "", 0);
   
-  $('#exampleModal').modal('toggle');
+  $('#myModal').modal('toggle');
+  $(".modal-backdrop").remove();
 
 }
 
