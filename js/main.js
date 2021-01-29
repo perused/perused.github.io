@@ -67,6 +67,10 @@ function submitNums(cur) {
     children[0].remove();
   }
 
+  // not working, why not?
+  // add numbers to modal title
+  // document.getElementById("myModalLabel").value = "Results for " + cur.num0.value + ", " + cur.num1.value + ", " + cur.num2.value + ", " + cur.num3.value; 
+
   // retrieve numbers from form
   var a = parseInt(cur.num0.value);
   var b = parseInt(cur.num1.value);
@@ -78,8 +82,6 @@ function submitNums(cur) {
   document.getElementById("num1").value = null;
   document.getElementById("num2").value = null;
   document.getElementById("num3").value = null;
-
-  // add numbers to modal title?
 
   // calculate results
   var nums = [a, b, c, d];
@@ -110,12 +112,12 @@ function sitch_one(nums, i, string, ans) {
 
   } else {
 
-    sitch_one(nums, i+1, `${string} + ${nums[i]}`, ans + nums[i]);
-    sitch_one(nums, i+1, `${string} - ${nums[i]}`, ans - nums[i]);
-    sitch_one(nums, i+1, `${string} x ${nums[i]}`, ans * nums[i]);
+    sitch_one(nums, i+1, `(${string} + ${nums[i]})`, ans + nums[i]);
+    sitch_one(nums, i+1, `(${string} - ${nums[i]})`, ans - nums[i]);
+    sitch_one(nums, i+1, `(${string} x ${nums[i]})`, ans * nums[i]);
 
     if (nums[i] != 0) {
-      sitch_one(nums, i+1, `${string} / ${nums[i]}`, ans / nums[i]);
+      sitch_one(nums, i+1, `(${string} / ${nums[i]})`, ans / nums[i]);
     }
   }
 }
