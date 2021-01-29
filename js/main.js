@@ -100,11 +100,11 @@ function calculateResults(a, b, c, d) {
   
   // a . (b . c) . d
   writeToModal("Sitch 2 (for testing purposes)", "result");
-  sitchTwo([a, (b+c), d], 0, `({b} + {c})`, b+c);
-  sitchTwo([a, (b*c), d], 0, `({b} * {c})`, b*c);
-  sitchTwo([a, (b-c), d], 0, `({b} - {c})`, b-c);
+  sitchTwo([a, (b+c), d], 0, `(${b} + ${c})`, b+c);
+  sitchTwo([a, (b*c), d], 0, `(${b} * ${c})`, b*c);
+  sitchTwo([a, (b-c), d], 0, `(${b} - ${c})`, b-c);
   if (c != 0) {
-    sitchTwo([a, (b/c), d], 0, `({b} / {c})`, b/c);
+    sitchTwo([a, (b/c), d], 0, `(${b} / ${c})`, b/c);
   }
   
   // a . b . (c . d)
@@ -170,21 +170,22 @@ function sitchOne(nums, i, string, ans) {
   }
 }
 
-// a . (b . c) . d -->
+// a . (b . c) . d
 function sitchTwo(nums, i, string, ans) {
 
-  if (i == 3) {
-    if (ans == 10) {
+  // a to b . c
+  if (i == 0) {
 
-      // console.log(string);
-      writeToModal(string, "result");
+    sitchTwo(nums, i+1, `(${nums[i]} + ${string})`, nums[i] + ans);
+    sitchTwo(nums, i+1, `(${nums[i]} - ${string})`, nums[i] - ans);
+    sitchTwo(nums, i+1, `(${nums[i]} x ${string})`, nums[i] * ans);
 
-    } else {
-
-      return;
+    if (nums[i] != 0) {
+      sitchTwo(nums, i+1, `(${nums[i]} / ${string})`, nums[i] / ans);
     }
 
-  } else {
+  // a . (b . c) to d
+  } else if (i == 1) {
 
     sitchTwo(nums, i+1, `(${string} + ${nums[i]})`, ans + nums[i]);
     sitchTwo(nums, i+1, `(${string} - ${nums[i]})`, ans - nums[i]);
@@ -193,8 +194,17 @@ function sitchTwo(nums, i, string, ans) {
     if (nums[i] != 0) {
       sitchTwo(nums, i+1, `(${string} / ${nums[i]})`, ans / nums[i]);
     }
-  }
 
+  } else {
+
+    if (ans == 10) {
+      writeToModal(string, "result");
+
+    } else {
+      return;
+
+    }
+  }
 }
 
 // // a . b . (c . d)
