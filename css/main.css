@@ -47,10 +47,10 @@ p {
 .item {
   color: black;
   margin: 40px;
-  width: 200px;
-  height: 150px;
+  width: 20vw; /* 200px = 20% */
+  height: 15vw;
   background: #f5f5f5;
-  border-radius: 10px;
+  border-radius: 10vw;
   box-shadow: 5px 5px 5px #636363;
   opacity: 0.8;
   transition: 0.3s;
@@ -140,7 +140,10 @@ img {
 }
 
 .number {
-  margin: 10px;
+  /* margin: 10px; */
+  width: 10%;
+  float: left;
+  flex: none;
 }
 
 /* hiding arrows/spinners from input boxes */
