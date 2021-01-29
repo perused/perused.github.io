@@ -38,6 +38,9 @@ function validate(cur, nextNo) {
   return;
 }
 
+// activate bootstrap modal
+
+
 // display in bootstrap modal?
 function submitNums(cur) {
 
