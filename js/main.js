@@ -84,15 +84,63 @@ function submitNums(cur) {
   document.getElementById("num3").value = null;
 
   // calculate results
-  var nums = [a, b, c, d];
-  sitch_one(nums, 1, a, a);
-  // sitch_two(nums, 0, "", 0);
-  // sitch_three(nums, 0, "", 0);
-  // sitch_four(nums, 0, "", 0);
+  calculateResults(a, b, c, d);
   
   // toggle modal
   $('#myModal').modal('toggle');
   $(".modal-backdrop").remove();
+
+}
+
+function calculateResults(a, b, c, d) {
+
+  // a . b . c . d
+  writeToModal("Sitch 1 (for testing purposes)", "result");
+  sitchOne([a, b, c, d], 1, a, a);
+  
+  // a . (b . c) . d
+  writeToModal("Sitch 2 (for testing purposes)", "result");
+  sitchTwo([a, (b+c), d], 0, `({b} + {c})`, b+c);
+  sitchTwo([a, (b*c), d], 0, `({b} * {c})`, b*c);
+  sitchTwo([a, (b-c), d], 0, `({b} - {c})`, b-c);
+  if (c != 0) {
+    sitchTwo([a, (b/c), d], 0, `({b} / {c})`, b/c);
+  }
+  
+  // a . b . (c . d)
+  // writeToModal("Sitch 3 (for testing purposes)", "results");
+  // sitchThree(nums, 0, "", 0);
+  
+  // a . ((b . c) . d)
+  // writeToModal("Sitch 4 (for testing purposes)", "results");
+  // sitchFour(nums, 0, "", 0);
+
+  
+  // sitch_a(None, [a, b, c, d], None)
+
+  // # a . (b . c) . d
+  // sitch_b(None, [a, (b+c), d], "(" + str(b) + " + " + str(c) + ")")
+  // sitch_b(None, [a, (b*c), d], "(" + str(b) + " x " + str(c) + ")")
+  // sitch_b(None, [a, (b-c), d], "(" + str(b) + " - " + str(c) + ")")
+  // if c != 0:
+  //     sitch_b(None, [a, (b/c), d], "(" + str(b) + " / " + str(c) + ")")
+  // # sitch_b(None, [a, (b**c), d], "(" + str(b) + " ^ " + str(c) + ")")
+
+  // # a . b . (c . d)
+  // sitch_c(None, [a, b, (c+d)], "",  "(" + str(c) + " + " + str(d) + ")")
+  // sitch_c(None, [a, b, (c*d)], "", "(" + str(c) + " x " + str(d) + ")")
+  // sitch_c(None, [a, b, (c-d)], "", "(" + str(c) + " - " + str(d) + ")")
+  // if d != 0:
+  //     sitch_c(None, [a, b, (c/d)], "", "(" + str(c) + " / " + str(d) + ")")
+  // # sitch_c(None, [a, b, (c**d)], "", "(" + str(c) + " ^ " + str(d) + ")")
+
+  // # a . ((b . c) . d)
+  // sitch_d(None, [a, (b+c), d], "(" + str(b) + " + " + str(c) + ")")
+  // sitch_d(None, [a, (b*c), d], "(" + str(b) + " x " + str(c) + ")")
+  // sitch_d(None, [a, (b-c), d], "(" + str(b) + " - " + str(c) + ")")
+  // if c != 0:
+  //     sitch_d(None, [a, (b/c), d], "(" + str(b) + " / " + str(c) + ")")
+  // # sitch_d(None, [a, (b**c), d], "(" + str(b) + " ^ " + str(c) + ")")
 
 }
 
@@ -125,7 +173,7 @@ function sitchOne(nums, i, string, ans) {
 // a . (b . c) . d -->
 function sitchTwo(nums, i, string, ans) {
 
-  if (i == 4) {
+  if (i == 3) {
     if (ans == 10) {
 
       // console.log(string);
