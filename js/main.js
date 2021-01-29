@@ -117,8 +117,13 @@ function calculateResults(a, b, c, d) {
   }
   
   // a . ((b . c) . d)
-  // writeToModal("Sitch 4 (for testing purposes)", "results");
-  // sitchFour(nums, 0, "", 0);
+  writeToModal("Sitch 4 (for testing purposes)", "results");
+  sitchFour([a, ((b+c), d)], 0, `(${b} + ${c})`, 0);
+  sitchFour([a, ((b*c), d)], 0, `(${b} * ${c})`, 0);
+  sitchFour([a, ((b-c), d)], 0, `(${b} - ${c})`, 0);
+  if (c != 0) {
+    sitchFour([a, ((b/c), d)], 0, `(${b} / ${c})`, 0);
+  }
 
 }
 
@@ -165,12 +170,12 @@ function sitchTwo(nums, i, string, ans) {
   // a . (b . c) to d
   } else if (i == 1) {
 
-    sitchTwo(nums, i+1, `(${string} + ${nums[i]})`, ans + nums[i]);
-    sitchTwo(nums, i+1, `(${string} - ${nums[i]})`, ans - nums[i]);
-    sitchTwo(nums, i+1, `(${string} x ${nums[i]})`, ans * nums[i]);
+    sitchTwo(nums, i+1, `(${string} + ${nums[2]})`, ans + nums[i]);
+    sitchTwo(nums, i+1, `(${string} - ${nums[2]})`, ans - nums[i]);
+    sitchTwo(nums, i+1, `(${string} x ${nums[2]})`, ans * nums[i]);
 
     if (nums[i] != 0) {
-      sitchTwo(nums, i+1, `(${string} / ${nums[i]})`, ans / nums[i]);
+      sitchTwo(nums, i+1, `(${string} / ${nums[2]})`, ans / nums[i]);
     }
 
   } else {
@@ -195,7 +200,7 @@ function sitchThree(nums, i, string, ans, endString, endVal) {
     sitchThree(nums, i+1, `(${nums[i]} - ${nums[i+1]})`, nums[i] - nums[i+1], endString, endVal);
     sitchThree(nums, i+1, `(${nums[i]} x ${nums[i+1]})`, nums[i] * nums[i+1], endString, endVal);
 
-    if (nums[i] != 0) {
+    if (nums[i+1] != 0) {
       sitchThree(nums, i+1, `(${nums[i]} / ${nums[i+1]})`, nums[i] / nums[i+1], endString, endVal);
     }
 
@@ -206,7 +211,7 @@ function sitchThree(nums, i, string, ans, endString, endVal) {
     sitchThree(nums, i+1, `(${string} - ${endString})`, ans - endVal, endString, endVal);
     sitchThree(nums, i+1, `(${string} x ${endString})`, ans * endVal, endString, endVal);
 
-    if (nums[i] != 0) {
+    if (endVal != 0) {
       sitchThree(nums, i+1, `(${string} / ${endString})`, ans / endVal, endString, endVal);
     }
 
@@ -224,28 +229,38 @@ function sitchThree(nums, i, string, ans, endString, endVal) {
 }
 
 // // a . ((b . c) . d)
-// function sitchFour(nums, i, string, ans) {
+function sitchFour(nums, i, string, ans) {
 
-//   if (i == 4) {
-//     if (ans == 10) {
+  // (b . c) to d
+  if (i == 0) {
 
-//       // console.log(string);
-//       writeToModal(string, "result");
+    sitchFour(nums, i+1, `(${string} + ${nums[2]})`, ans + nums[2]);
+    sitchFour(nums, i+1, `(${string} - ${nums[2]})`, ans - nums[2]);
+    sitchFour(nums, i+1, `(${string} x ${nums[2]})`, ans * nums[2]);
 
-//     } else {
+    if (nums[2] != 0) {
+      sitchFour(nums, i+1, `(${string} / ${nums[2]})`, ans / nums[2]);
+    }
 
-//       return;
-//     }
+  // a to (b . c) . d
+  } else if (i == 1) {
 
-//   } else {
+    sitchFour(nums, i+1, `(${nums[2]} + ${string})`, nums[0] + ans);
+    sitchFour(nums, i+1, `(${nums[2]} - ${string})`, nums[0] - ans);
+    sitchFour(nums, i+1, `(${nums[2]} x ${string})`, nums[0] * ans);
 
-//     sitchFour(nums, i+1, `(${string} + ${nums[i]})`, ans + nums[i]);
-//     sitchFour(nums, i+1, `(${string} - ${nums[i]})`, ans - nums[i]);
-//     sitchFour(nums, i+1, `(${string} x ${nums[i]})`, ans * nums[i]);
+    if (ans != 0) {
+      sitchFour(nums, i+1, `(${nums[2]} / ${string})`, nums[0] / ans);
+    }
 
-//     if (nums[i] != 0) {
-//       sitchFour(nums, i+1, `(${string} / ${nums[i]})`, ans / nums[i]);
-//     }
-//   }
+  } else {
 
-// }
+    if (ans == 10) {
+      writeToModal(string, "result");
+
+    } else {
+      return;
+    }
+
+  }
+}
