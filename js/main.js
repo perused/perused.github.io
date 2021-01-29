@@ -61,7 +61,11 @@ function writeToModal(string, classOfString) {
 function submitNums(cur) {
 
   // clear any previous results in modal
-  $("results").empty();
+  var modalList = document.getElementById("results");
+  var children = modalList.children;
+  while (children.length > 0) {
+    children[0].remove();
+  }
 
   // retrieve numbers from form
   var a = parseInt(cur.num0.value);
