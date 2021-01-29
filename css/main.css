@@ -139,11 +139,23 @@ img {
   display: block;
 }
 
-.number {
-  /* margin: 10px; */
+#numbersRow {
+  width: 100%;
+}
+
+/* .number {
   width: 10%;
   float: left;
-  flex: none;
+} */
+
+#num0 {
+  margin-left: 10%;
+}
+
+#num0,#num1,#num2,#num3 {
+  width: 6%;
+  float: left;
+  margin-right: 5%;
 }
 
 /* hiding arrows/spinners from input boxes */
@@ -173,4 +185,10 @@ input[type=number] {
 
 form {
   margin-bottom: 5%;
+}
+
+#trainContact {
+  color: black !important;
+  font-family: "EB Garamond" !important, sans-serif;
+  font-size: 15px !important;
 }
