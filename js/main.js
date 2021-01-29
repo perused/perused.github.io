@@ -46,22 +46,41 @@ function initForm() {
 
 }
 
-// display in bootstrap modal?
+function writeToModal(string, classOfString) {
+
+  var newResult = document.createElement("li");
+  newResult.className = classOfString;
+  var newResultValue = document.createTextNode(string);
+  newResult.appendChild(newResultValue);
+  var results = document.getElementById("results");
+  results.appendChild(newResult);
+
+}
+
+// after the form is submitted, this function retrieves the numbers from the form and then clears the numbers from the form, clears previously filled in results from the modal, calls the calculating functions to print the numbers in the modal and then toggles the modal on.  
 function submitNums(cur) {
 
+  // clear any previous results in modal
+  $("results").empty();
+
+  // retrieve numbers from form
   var a = parseInt(cur.num0.value);
   var b = parseInt(cur.num1.value);
   var c = parseInt(cur.num2.value);
   var d = parseInt(cur.num3.value);
 
-  var nums = [a, b, c, d];
+  // TO DO: clear numbers from form here
 
-  
+  // add numbers to modal title?
+
+  // calculate results
+  var nums = [a, b, c, d];
   sitch_one(nums, 1, a, a);
   // sitch_two(nums, 0, "", 0);
   // sitch_three(nums, 0, "", 0);
   // sitch_four(nums, 0, "", 0);
   
+  // toggle modal
   $('#myModal').modal('toggle');
   $(".modal-backdrop").remove();
 
@@ -73,12 +92,8 @@ function sitch_one(nums, i, string, ans) {
   if (i == 4) {
     if (ans == 10) {
 
-      console.log(string);
-      var newResult = document.createElement("li");
-      var newResultValue = document.createTextNode(string);
-      newResult.appendChild(newResultValue);
-      var results = document.getElementById("results");
-      results.appendChild(newResult);
+      // console.log(string);
+      writeToModal(string, "result");
 
     } else {
 
