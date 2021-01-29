@@ -73,7 +73,11 @@ function submitNums(cur) {
   var c = parseInt(cur.num2.value);
   var d = parseInt(cur.num3.value);
 
-  // TO DO: clear numbers from form here
+  // clear numbers from form
+  document.getElementById("num0").value = null;
+  document.getElementById("num1").value = null;
+  document.getElementById("num2").value = null;
+  document.getElementById("num3").value = null;
 
   // add numbers to modal title?
 
