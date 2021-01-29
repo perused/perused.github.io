@@ -170,3 +170,7 @@ input[type=number] {
   width: 20%;
   height: 75%;
 }
+
+form {
+  margin-bottom: 5%;
+}
