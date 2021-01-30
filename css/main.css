@@ -56,20 +56,6 @@ p {
   transition: 0.3s;
 }
 
-
-
-@media only screen and (max-width: 700px) {
-  .item {
-    width: 40%;
-    height: 30vw;
-  }
-  
-  #pageController {
-    width: 100px;
-    height: 80px;
-  }
-}
-
 .item:hover {
   opacity: 1;
   background: grey;
@@ -205,4 +191,31 @@ form {
   color: black !important;
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 15px !important;
+}
+
+@media only screen and (max-width: 700px) {
+  .item {
+    width: 40%;
+    height: 30vw;
+  }
+
+  #pageController {
+    width: 100px;
+    height: 80px;
+  }
+
+  #num0 {
+    margin-left: 10%;
+  }
+  
+  #num0,#num1,#num2,#num3 {
+    width: 15%;
+    height: 20vw;
+    float: left;
+    margin-right: 5%;
+  }
+
+  input {
+    font-size: 13vw !important;
+  }
 }
