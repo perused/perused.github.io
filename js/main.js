@@ -85,6 +85,12 @@ function submitNums(cur) {
 
   // calculate results
   calculateResults(a, b, c, d);
+
+  // if there are no results, let the user know
+  var results = document.getElementById("results");
+  if (results.childElementCount == 0) {
+    writeToModal("No results found :(", "result");
+  } 
   
   // toggle modal
   $('#myModal').modal('toggle');
