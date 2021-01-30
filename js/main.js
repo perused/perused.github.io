@@ -254,12 +254,12 @@ function sitchFour(nums, iter, string, ans) {
   // a to (b . c) . d
   } else if (iter == 1) {
 
-    sitchFour(nums, iter+1, `(${nums[2]} + ${string})`, nums[0] + ans);
-    sitchFour(nums, iter+1, `(${nums[2]} - ${string})`, nums[0] - ans);
-    sitchFour(nums, iter+1, `(${nums[2]} x ${string})`, nums[0] * ans);
+    sitchFour(nums, iter+1, `(${nums[0]} + ${string})`, nums[0] + ans);
+    sitchFour(nums, iter+1, `(${nums[0]} - ${string})`, nums[0] - ans);
+    sitchFour(nums, iter+1, `(${nums[0]} x ${string})`, nums[0] * ans);
 
     if (ans != 0) {
-      sitchFour(nums, iter+1, `(${nums[2]} / ${string})`, nums[0] / ans);
+      sitchFour(nums, iter+1, `(${nums[0]} / ${string})`, nums[0] / ans);
     }
 
   } else {
