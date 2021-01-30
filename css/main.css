@@ -149,13 +149,13 @@ img {
 } */
 
 #num0 {
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 #num0,#num1,#num2,#num3 {
-  width: 12vw;
+  width: 10vw;
   float: left;
-  margin-right: 5%;
+  /* margin-right: 5%; */
 }
 
 /* hiding arrows/spinners from input boxes */
