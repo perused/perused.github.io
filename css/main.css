@@ -47,7 +47,7 @@ p {
 .item {
   color: black;
   margin: 40px;
-  width: 20vw;
+  width: 20%;
   height: 15vw;
   background: #f5f5f5;
   border-radius: 10vw;
@@ -56,9 +56,18 @@ p {
   transition: 0.3s;
 }
 
-#pageController {
-  width: 100px;
-  height: 80px;
+
+
+@media only screen and (max-width: 700px) {
+  .item {
+    width: 40%;
+    height: 30vw;
+  }
+  
+  #pageController {
+    width: 100px;
+    height: 80px;
+  }
 }
 
 .item:hover {
@@ -154,11 +163,11 @@ img {
 } */
 
 #num0 {
-  margin-left: 12%;
+  margin-left: 10%;
 }
 
 #num0,#num1,#num2,#num3 {
-  width: 10vw;
+  width: 12vw;
   float: left;
   margin-right: 5%;
 }
