@@ -124,7 +124,56 @@ img {
   height: 80%;
   width: auto;
   margin-left: 15%;
-  /* margin-top: 2%; */
+  margin-top: 5%;
+}
+
+#solarSystem {
+  height: 80%;
+  width: auto;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+
+#train {
+  height: 80%;
+  width: auto;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+#converter {
+  height: 80%;
+  width: auto;
+  margin-left: 25%;
+  margin-top: 3%;
+}
+
+#filesystem {
+  height: 80%;
+  width: auto;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+#website {
+  height: 80%;
+  width: auto;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
+#bot {
+  height: 80%;
+  width: auto;
+  margin-left: 15%;
+  margin-top: 3%;
+}
+
+#desk {
+  height: 80%;
+  width: auto;
+  margin-left: 20%;
+  margin-top: 3%;
 }
 
 .project-icon {
