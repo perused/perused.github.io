@@ -43,13 +43,13 @@
 
     <p>In order to investigate the various intricacies of threading in regards to the execution time of the program, a few approaches were taken. These approaches included changing the number of iterations, bodies and threads on the execution time of the command line program. Each was run 5 times in order to negate the variability of the time command in bash. </p>
 
-    Test 1: Run with 10 randomly generated bodies over 1000 iterations.
+    <p>Test 1: Run with 10 randomly generated bodies over 1000 iterations.</p>
 
     <img class="jeff" src="./img/t1.png">
 
     <p>In this test, there did not appear to be much of a difference between threaded and multi-threaded performance, if any. It could be said that the marginally lower performance of the two thread program might be attributed to overhead of creating and joining threads as well as context switching. However, this can quickly be disregarded since the four thread solution outperformed the two thread solution. It is difficult to determine whether this combination of arguments is interesting because it does not distinguish between a threaded and multi threaded solution, or perhaps not interesting because it doesn't allow the simulation to run long enough to distinguish between them. </p>
 
-    Test 2: Run with 10 randomly generated bodies over 100,000 iterations.
+    <p>Test 2: Run with 10 randomly generated bodies over 100,000 iterations.</p>
 
     <img class="jeff" src="./img/t2.png">
 
@@ -57,7 +57,7 @@
 
     <p>It is also worth noting there did not seem to be much of a difference between two and four threads in the program, with neither outperforming the other. One possible reason for this is that the overhead of creating another two threads and context switching in this instance might negate the benefit of threading more of the step function. Another possibility is there exists some kind of bottleneck in the program preventing threads from achieving better performance from additional work. One last possibility is some false sharing is occurring, which somehow, like in my first hypothesis, negates the benefits of adding further threads to the program.</p>
 
-    Test 3: Run with 1000 randomly generated bodies over 1000 iterations.
+    <p>Test 3: Run with 1000 randomly generated bodies over 1000 iterations.</p>
 
     <img class="jeff" src="./img/t3.png">
 
@@ -65,7 +65,7 @@
 
     <p>In order to try and determine the reason for this plateau, one last test was run with 2, 4, 8 and 12 threads to see if any patterns could be spotted: </p>
 
-    Test 4: Run with 10 randomly generated bodies over 100,000 iterations.
+    <p>Test 4: Run with 10 randomly generated bodies over 100,000 iterations.</p>
 
     <img class="jeff" src="./img/t4.png">
 
