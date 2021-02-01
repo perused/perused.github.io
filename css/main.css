@@ -56,6 +56,10 @@ p {
   transition: 0.3s;
 }
 
+#highlight {
+  box-shadow: 5px 5px 5px #3cff00;
+}
+
 .item:hover {
   opacity: 1;
   background: grey;
@@ -217,5 +221,9 @@ form {
 
   input {
     font-size: 13vw !important;
+  }
+
+  h1 {
+    font-size: 15vw !important;
   }
 }
