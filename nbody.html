@@ -17,7 +17,7 @@
       <a class="item" id="pageController" href="./index.html" title="Go Home"><img class="project-icon" id="home" src="./img/home.png"></a>
     </div>
 
-    <img class="jeff" src="./img/nbody.gif" alt="Credit: Tyson Thomas" title="Credit: Tyson Thomas">
+    <img class="jeff" src="./img/knowledge/nbody.gif" alt="Credit: Tyson Thomas" title="Credit: Tyson Thomas">
 
     <p>In this project, I create a simulation of orbiting bodies inside a user specified solar system in C. The simulation was multi-threaded using pthread and threads were injected depending on user specifications from the command line. Data for the orbiting bodies could be obtained from a file or from the command line to randomly generate bodies. The simulation was rendered graphically using SDL.</p>
 
@@ -45,13 +45,13 @@
 
     <p>Test 1: Run with 10 randomly generated bodies over 1000 iterations.</p>
 
-    <img class="jeff" src="./img/t1.png">
+    <img class="jeff" src="./img/knowledge/t1.png">
 
     <p>In this test, there did not appear to be much of a difference between threaded and multi-threaded performance, if any. It could be said that the marginally lower performance of the two thread program might be attributed to overhead of creating and joining threads as well as context switching. However, this can quickly be disregarded since the four thread solution outperformed the two thread solution. It is difficult to determine whether this combination of arguments is interesting because it does not distinguish between a threaded and multi threaded solution, or perhaps not interesting because it doesn't allow the simulation to run long enough to distinguish between them. </p>
 
     <p>Test 2: Run with 10 randomly generated bodies over 100,000 iterations.</p>
 
-    <img class="jeff" src="./img/t2.png">
+    <img class="jeff" src="./img/knowledge/t2.png">
 
     <p>Test 2 certainly highlighted the difference between single and multi threaded solutions, as opposed to Test 1. This is because this test ran for 100,000 iterations as opposed to 1000, whilst keeping all other arguments the same. The threaded solutions almost performed twice as well as sequential program, which makes sense considering the step function is the only threaded part of the program and also takes up the majority of execution time.</p>
 
@@ -59,7 +59,7 @@
 
     <p>Test 3: Run with 1000 randomly generated bodies over 1000 iterations.</p>
 
-    <img class="jeff" src="./img/t3.png">
+    <img class="jeff" src="./img/knowledge/t3.png">
 
     <p>In Test 2, 1000 iterations were performed on 1000 randomly generated bodies. Immediately, it is clear to see the huge increase in time taken to complete the program. Additionally, it is interesting to note that there is an extremely similarly shape of the graph between Test 2 and Test 3, despite the differing arguments between the two. This strongly indicates a similar improvement in in threading providing benefits for the step function, and yet it seems to plateau at 4 threads.  </p>
 
@@ -67,7 +67,7 @@
 
     <p>Test 4: Run with 10 randomly generated bodies over 100,000 iterations.</p>
 
-    <img class="jeff" src="./img/t4.png">
+    <img class="jeff" src="./img/knowledge/t4.png">
 
     <p>For Test 4, it was run with 100,000 iterations and 2, 4, 8 and 12 threads. Once again, it is difficult to discern much difference between thread performance here. This leads me to believe that one of two conclusions are possible:</p>
 

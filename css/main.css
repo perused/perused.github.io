@@ -2,7 +2,7 @@ body {
   height: 100%;
   width: 100%;
   /* background-image: url("../img/wall5.jpg"); */
-  background-image: url("../img/wall2.png");
+  background-image: url("../img/wallpaper/wall2.png");
 }
 
 @font-face {
@@ -118,6 +118,13 @@ img {
 #projects {
   margin-left: 25%;
   margin-top: 8%;
+}
+
+#smart {
+  height: 80%;
+  width: auto;
+  margin-left: 15%;
+  /* margin-top: 2%; */
 }
 
 .project-icon {
