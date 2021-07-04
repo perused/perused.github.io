@@ -31,13 +31,27 @@ h3 {
   color: white;
 }
 
-/* p {
+h4 {
+  font-family: "EB Garamond" !important, sans-serif;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  color: white;
+}
+
+h5 {
+  font-family: "EB Garamond" !important, sans-serif;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  color: white;
+}
+
+.pd {
   color: white;
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 20px !important;
   margin-left: 7vw;
   margin-right: 7vw;
-} */
+}
 
 .flex-container {
   display: flex;
@@ -74,6 +88,14 @@ img {
   width: 60% !important;
   margin-left: 20% !important;
   margin-right: 20% !important;
+  margin-bottom: 30px !important;
+  height: auto !important;
+}
+
+.tables {
+  width: 20% !important;
+  margin-left: 40% !important;
+  margin-right: 40% !important;
   margin-bottom: 30px !important;
   height: auto !important;
 }
