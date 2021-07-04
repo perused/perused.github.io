@@ -27,6 +27,12 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-family: "Roboto Thin", sans-serif;
+  color: white;
+  text-align: center;
+}
+
 h3 {
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 30px !important;
