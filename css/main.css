@@ -5,6 +5,10 @@ body {
   background-image: url("../img/wallpaper/wall2.png");
 }
 
+.project {
+  background-image: url("../img/wallpaper/projects.jpg");
+}
+
 @font-face {
   font-family: "Roboto Thin";
   src: url("../fonts/Roboto-Light.ttf");
@@ -38,7 +42,7 @@ h4 {
   color: white;
 }
 
-h5 {
+.hh5 {
   font-family: "EB Garamond" !important, sans-serif;
   margin-left: 7vw;
   margin-right: 7vw;

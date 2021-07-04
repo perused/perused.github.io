@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
   </head>
-  <body>
+  <body class="project">
 
     <h1>Named Entity Recognition</h1>
 
@@ -61,21 +61,21 @@
 
     <h4>Evaluation Setup</h4>
 
-    <h5>Dataset</h5>
+    <h5 class="hh5">Dataset</h5>
 
     <p class="pd">All experiments were conducted on part of the re3d dataset from Defense Science and Technology Laboratory, U.K. The data is obtained from data relevant to the role of a security analyst and includes training, validation and test data. </p>
 
-    <h5>Baselines</h5>
+    <h5 class="hh5">Baselines</h5>
 
     <p class="pd">We compare our model with the Lab09 - BiLSTM CRF model and our own baseline model, which is described in the NER Model section. The best model used is the BiLSTM + CRF + encoder-decoder attention + syntactic, semantic and domain (all) input embeddings. The base models differ between ablation studies and are as follows: for the different input embedding model ablation study, the base model is BiLSTM + CRF + encoder-decoder attention with no input embeddings. For the ablation study of attention strategies, the base model is BiLSTM + CRF + all input embeddings. For the base model in the stacked layers ablation study, it is a BiLSTM + CRF + encoder-decoder attention + all input embeddings. </p>
 
-    <h5>Implementation</h5>
+    <h5 class="hh5">Implementation</h5>
 
     <p class="pd">The hyper-parameters we selected for our evaluation and ablation studies were justified through testing on the validation set. We performed experiments on our best model (Bi-LSTM encoder-decoder + CRF + attention) to determine suitable values for number of epochs, number of hidden dimensions, and learning rate. We selected Adam as our optimiser as many previous SOTA NER models utilise this optimiser. Our chosen hyper-parameters are shown in Table 1.</p>
 
     <img class="tables" src="./img/knowledge/1table .png">
 
-    <h5>Evaluation Result</h5>
+    <h5 class="hh5">Evaluation Result</h5>
 
     <h4>Performance Comparison</h4>
 
