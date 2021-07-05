@@ -322,3 +322,7 @@ form {
     font-size: 15vw !important;
   }
 }
+
+.disabled {
+  pointer-events: none;
+}
