@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Virtual File System</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+  </head>
+  <body class="project">
+
+    <h1>Virtual File System</h1>
+
+    <div class="flex-container justify-content-center">
+      <a class="item" id="pageController" href="projects.html" title="Go Back"><img class="project-icon" id="back" src="../img/back.png"></a>
+      <a class="item" id="pageController" href="../index.html" title="Go Home"><img class="project-icon" id="home" src="../img/home.png"></a>
+    </div>
+
+    <p class="pd">In this project, I implemented a virtual file system in C. First, methods were created that simulated real file operations on a real disk such as read, write and delete. Then, a merkel tree hash was applied to each read and write to verify the file system had not been corrupted at any point. After this was done, the system was extended to utilise the Filesystem in Userspace (FUSE) Linux module. This resulted in the file system operating like an actual external drive. Other extensions included repacking the file system in order to ensure disk space could be fully utilised as well as making each of the methods thread safe in order to allow for multi-threaded functionality in the future. Code for this project can be provided conditionally upon request.</p>
+
+  </body>
+</html>

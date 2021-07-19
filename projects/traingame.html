@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <!-- open graph meta tags -->
+    <meta property="og:title" content="Online Train Game Solver" />
+    <meta property="og:description" content="Solve the Sydney Train Game here" />
+    <meta property="og:image" content="img/train.png" />
+    <!--  -->
+    <title>Train Game Project</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
+
+  </head>
+  <body class="project" onload="initForm();">
+
+    <h1>Train Game</h1>
+
+    <h2>Currently undergoing bug fixing!</h2>
+    
+
+    <div class="flex-container justify-content-center">
+      <a class="item" id="pageController" href="projects.html" title="Go Back"><img class="project-icon" id="back" src="../img/back.png"></a>
+      <a class="item" id="pageController" href="../index.html" title="Go Home"><img class="project-icon" id="home" src="../img/home.png"></a>
+    </div>
+
+    <!-- do some js form validation -->
+    <form id="trainForm" onsubmit="submitNums(this);">
+      <div class="container">
+        <div class="row justify-content-center" id="numbersRow">
+          <!-- <div class="number"> -->
+            <input type="number" id="num0" name="num0" class=".col-sm" placeholder="" autofocus="" required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="goBack(this,-1);" onKeyUp="validate(this,1);">
+          <!-- </div> -->
+          <!-- <div class="number"> -->
+            <input type="number" id="num1" name="num1" class=".col-sm" placeholder="" required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="goBack(this,0);" onKeyUp="validate(this,2);">
+          <!-- </div> -->
+          <!-- <div class="number"> -->
+            <input type="number" id="num2" name="num2" class=".col-sm" placeholder="" required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="goBack(this,1);" onKeyUp="validate(this,3);">
+          <!-- </div> -->
+          <!-- <div class="number"> -->
+            <input type="number" id="num3" name="num3" class=".col-sm" placeholder="" required autocomplete="off" step="1" min="0" max="9" maxlength="1" onKeyDown="goBack(this,2);" onKeyUp="validate(this,4);">
+          <!-- </div> -->
+        </div>
+        <div class="text-center">
+          <button type="submit" id="num4" name="submit" class="btn btn-primary" onKeyDown="goBack(this,3);">Solve!</button>
+        </div>
+      </div>
+    </form>
+
+    <h3>What is the Train Game?</h3>
+
+    <p class="pd">In short, you need to combine four numbers to equal 10 using only plus, minus, multiply, divide and brackets (rules can vary). For an extended explanation on the origins of this game, read below.</p>
+
+    <p class="pd">The Train Game seems to be a rite of passage for young Sydney-siders. Upon stepping onto a train carriage, a group of friends will immediately turn to the carriage number, which is a four digit number. It becomes a race between them all to find a way to get the four numbers to equal 10, using the rules outlined above. Inevitably, someone will have used an invalid operator, like 'the power of' or 'floor division', and an argument will ensue. It makes for a very entertaining way of passing the time on the train.</p>
+
+    <p class="pd">In my game above, I require that the four numbers must be solved 'in order', meaning from left to right. Note, this does not mean that one cannot use brackets to manipulate the order of operations.</p>
+
+    <p class="pd">I created this program in order to validate or 'cheat' on the train game (cheat only if you give up!).</p>
+
+    <p class="pd">Note, not all combinations of four numbers have a valid solution.</p>
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="myModalLabel">Results</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ul id="results">
+              <!-- results go here -->
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <p id="trainContact">Testing is still in progress, so please <a href="mailto:samjacobs7878@gmail.com?subject=Train Game: Improvement, Question or Issue&body=Hey Sam,">contact me</a> about potential errors!</p>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

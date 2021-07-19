@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>NER Project</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+  </head>
+  <body class="project">
+
+    <h1>Named Entity Recognition</h1>
+
+    <div class="flex-container justify-content-center">
+      <a class="item" id="pageController" href="projects.html" title="Go Back"><img class="project-icon" id="back" src="../img/back.png"></a>
+      <a class="item" id="pageController" href="../index.html" title="Go Home"><img class="project-icon" id="home" src="../img/home.png"></a>
+    </div>
+
+    <p class="pd">GIF and more information coming soon!</p>
+
+    <p class="pd">PyTorch bidirectional LSTM with CRF attachment and encoder-decoder attention for the Named Entity Recognition task.</p>
+
+    <!--
+
+    <p class="pd">The following page describes the process of creating a named entity recognition (NER) model. The use of input embeddings and the architecture of the model are described in detail, with justifications of decisions made throughout the development process.</p> 
+
+    <h3>Input Embeddings</h3>
+
+    <p class="pd">For input embedding, you need to describe how to train each feature embedding and why you chose this features for the re3d named entity recognition</p>
+
+    <p class="pd">Various combinations of input embeddings were experimented with for the NER model. This included syntactic textual feature embeddings, word embeddings as well as domain feature embeddings. </p>
+
+    <p class="pd">The syntactic textual feature embedding involved including the POS tag and dependency path for that word. For the dependency path encoding, We include the dependency tag for the word, its parent, and all its children. This path encoding is padded to the length of the longest path in our training corpus, which is just the token with the most amount of dependent children in a sequence. The reason this method was chosen was because inputting the entire dependency path for every token would not inform the model of how that particular token fit into the tokens around it. Therefore, encoding its parent, itself and its children is an effective method of informing the model of this information. These embeddings were chosen due to the increased performance they provided to the end result of the model, as justified in the ablation study below. The dimension of POS tag has to be 1, and the dimension of the dependency path was set to 1 + 1 + length of the maximum number of children of all tokens in the dataset. This length was set so that no children would be excluded from the embedding as that could potentially be valuable information for the NER model. </p>
+
+    <p class="pd">All our experiments in this report use the pre-trained glove-wiki-gigaword-300 from gensim. We decided on GloVe based on its strong demonstrated performance. We acknowledge that improved performance could have been achieved with BERT or ELMO, however GloVe was chosen over BERT and ELMO due to time constraints and a strong performance in the literature. 300 was used as the dimension for the word embeddings for two reasons: firstly, it was one of the only choices available in the Gensim pre-trained models, which were used due to time constraints. Secondly, the literature referenced earlier in this paragraph displays strong results for a 300 dimension word embedding model. </p>
+
+    <p class="pd">The domain feature embedding consisted of a 13 dimension binary vector. We used a gazetteer <a href="https://github.com/hltcoe/gazetteer-collection" target="_blank">found here</a> that contained information such as cities, organisations, governments, etc. to assist in constructing our domain embeddings. We manually input some data such as currency symbols, days, months and written time measurements (e.g. ``\$'', ``wednesday'', ``december'', ``hours''). For each word in the training corpus, its domain vector embedding would be 0 if it was not seen in the corresponding domain data index and 1 if it was. 13 dimensions were chosen here because they were considered the only relevant categories for the re3d dataset itself. For example, items like 'chemicals' were ignored in the gazetteer since they were not considered relevant, thus leaving us with 13 dimensions. </p>
+
+    <h3>NER Model</h3>
+
+    <p class="pd">Various architectures were experimented with in order to develop for the NER task. These included a bidirectional LSTM, a bidirectional LSTM with a CRF attachment and other variations of these models that utilise attention.</p>
+
+    <p class="pd">First, the base model will be described. The base model is an N to N bidirectional LSTM with no CRF attachment and no attention. It uses syntactic, semantic and domain input embeddings. It is trained using cross entropy loss and the Adam optimiser. The forward function takes an input, retrieves the embeddings for this input and feeds it through the LSTM. This output is then fed through a linear layer and the argmax is taken to decide which NER token has been chosen for each input embedding. It should be noted that the base model requires padding to work, which has been set to a length of 40 for all experiments. </p>
+
+    <p class="pd">The NER model with CRF is an N to N bidirectional LSTM. It is trained using negative log likelihood loss and the Adam optimiser. The forward function obtains the LSTM features to feed into the CRF as input, which uses a Viterbi algorithm to decode and calculate the NER sequence output.</p>
+
+    <h4>Stacking Layers</h4>
+
+    <p class="pd">In our models, we experimented with different numbers of stacked layers. For our base Bi-LSTM model, we tried stacking differing numbers of LSTM layers. We utilised the inbuilt num\_layers parameter in the the PyTorch LSTM layer to adjust the number of stacks. It was difficult to determine whether stacking layers would directly benefit our model without testing, so we tested the impact of layer stacking in our ablation studies.</p>
+
+    <h4>Attention</h4>
+
+    <p class="pd">The first attention approach involved calculating the attention scores directly before the output layer. We took the current hidden state of the decoder and computed the attention score for each hidden state of the encoder using a variety of scoring functions. All the calculated attention scores were passed through a softmax function to generate a single attention output for the current decoder hidden state. The attention output was concatenated with the current decoder hidden state and then passed through an output linear layer. This type of attention is local since the decoder hidden state is calculated against the encoder hidden states of the current sequence only. </p>
+
+    <p class="pd">Three different attention score calculations were used in this strategy. In the following function definitions, $h_i$ is defined as the encoder hidden state and $s_t$ is defined as the decoder hidden state at time-step $t$. The first approach we tried was dot-product attention. Dot-product attention is the most simple score function we used and is calculated as follows: $score(s_t, h_t) = s_t^T h_i$. We also experimented with scaled dot-product attention. This is defined as $score(s_t, h_t) = \frac{s_t^T h_i}{\sqrt{n}}$, where $n$ is the dimension of the source hidden state. Scaled dot-product attention was proposed in the original Transformer architecture paper and only makes a small modification to the dot-product attention function by adding a scaling component. Finally, we also tested a general attention function. General attention is defined as $score(s_t, h_t) = s_t^T W_a h_i$, where $W_a$ is a trainable weight matrix in the attention layer. We will explore the impact of these different attention calculation functions in the evaluation section.</p>
+
+    <p class="pd">The second attention approach involved performing self attention on the output of the encoder layer before feeding this output into the CRF. This used scaled dot-product attention as that is what is provided by the PyTorch library in the MultiheadAttention layer, which was used to help calculate self attention. Positional encoding was used for self attention as self attention is not processed sequentially like an RNN. The attention output was then concatenated with the original encoder output, then fed to a linear layer and then to the CRF for decoding. </p>
+
+    <p class="pd">The last attention approach involved stacking the two aforementioned attention layers together. The output of the encoder self attention was fed into the encoder-decoder attention calculation, replacing the encoder part of this attention. The only adjustment that needed to be made was a transformation of the self-attention output through a linear layer in order for the previous calculation to work in the same manner. </p>
+
+    <h4>CRF</h4>
+
+    <p class="pd">We experimented with models that used CRF and models that did not. The CRF component would take the output of the Bi-LSTM as input (regardless of any attention application). CRF ensures that ``beginning'' NER tags proceed ``inside'' NER tags.</p>
+
+    <h3>Evaluation</h3>
+
+    <h4>Evaluation Setup</h4>
+
+    <h5 class="hh5">Dataset</h5>
+
+    <p class="pd">All experiments were conducted on part of the re3d dataset from Defense Science and Technology Laboratory, U.K. The data is obtained from data relevant to the role of a security analyst and includes training, validation and test data. </p>
+
+    <h5 class="hh5">Baselines</h5>
+
+    <p class="pd">We compare our model with the Lab09 - BiLSTM CRF model and our own baseline model, which is described in the NER Model section. The best model used is the BiLSTM + CRF + encoder-decoder attention + syntactic, semantic and domain (all) input embeddings. The base models differ between ablation studies and are as follows: for the different input embedding model ablation study, the base model is BiLSTM + CRF + encoder-decoder attention with no input embeddings. For the ablation study of attention strategies, the base model is BiLSTM + CRF + all input embeddings. For the base model in the stacked layers ablation study, it is a BiLSTM + CRF + encoder-decoder attention + all input embeddings. </p>
+
+    <h5 class="hh5">Implementation</h5>
+
+    <p class="pd">The hyper-parameters we selected for our evaluation and ablation studies were justified through testing on the validation set. We performed experiments on our best model (Bi-LSTM encoder-decoder + CRF + attention) to determine suitable values for number of epochs, number of hidden dimensions, and learning rate. We selected Adam as our optimiser as many previous SOTA NER models utilise this optimiser. Our chosen hyper-parameters are shown in Table 1.</p>
+
+    <img class="tables" src="../img/knowledge/1table .png">
+
+    <h5 class="hh5">Evaluation Result</h5>
+
+    <h4>Performance Comparison</h4>
+
+    <p class="pd">As can be seen in Table 2, there is a narrow margin between the baseline model and our best model. Despite the addition of syntactic input embeddings, domain input embeddings as well as encoder-decoder attention before feeding to the CRF, the overall performance of our best model is not significantly improved compared to the baseline. The ablation study on input embeddings below explains in more detail but it is important to note that despite the individual improvements offered by each input embedding, when combined together they did not seem to complement each other well, hence they did not offer much of an advantage over the baseline model. Furthermore, the encoder-decoder attention strategy, which will be discussed in more detail in that ablation section, seemed to complement the use of the CRF poorly. This is likely because both the attention strategy and the CRF had similar goals, and thus combining them did not lead to significant performance improvement. </p>
+
+    <img class="tables" src="../img/knowledge/2table .png">
+
+    <h3>Ablation Study - different input embedding model</h3>
+
+    <p class="pd">We performed an ablation study on a selection of different input embedding models. As seen in Table 2, the base model with no embeddings performed the weakest, with an $F_1$ score of only 58.51. This is because this input does not capture any of the semantic or syntactic relationship between words and their true label. When we use only a POS embedding, the $F_1$ score increases substantially to 68.35 as now the model is able to utilise syntactic relationships to learn the corresponding tags. Similarly, when we apply only the dependency path embeddings, we see slightly better performance at 71.98. Our gazetteer-based domain embeddings see a further improvement over just domain embeddings, with an $F_1$ of 75.67. This is particularly interesting as the gazetteer only matches with a relatively small number of words the corpus so the quality of this embedding alone is quite impressive. As expected, the word embedding embedding performs the best of any singular embedding approach with a score of 79.41. The GloVe word embedding with 300 dimensions is able to capture a lot of semantic information about the corpus and hence the model is able to learn to predict entities much better. When we combine POS, dependency path, domain, and word embeddings, our model sees the best performance with an $F_1$ of 80.19. By combining all of the aforementioned embeddings, we are able to effectively embed both semantic and syntactic information in the input sentences, resulting in the best relative performance.</p>
+
+    <img class="tables" src="../img/knowledge/3table.png">
+
+    <h3>Ablation Study - different attention strategy</h3>
+
+    <p class="pd">For attention strategies, three different methods of calculating attention were experimented with in regards to encoder-decoder attention. These were dot product, scaled dot product and general attention, described in the attention section above. All results were extremely close in performance and thus makes it difficult to ascertain if any attention method was better than the others. However, general attention performed well in the experiments and appeared to have a more consistent higher output than the others. Results have been shown that indicate that dot product attention works better for global attention whereas general attention works better for local attention. This aligns with our results since the encoder-decoder attention that was implemented is local attention. It is more difficult to comment on the scaled dot product attention compared to general attention, however, it is plausible that the same reason also applies in this instance. </p>
+
+    <p class="pd">Furthermore, self attention on the encoder output significantly under performed the other methods. This is likely due to the implementation, since Q K and V vectors all came from the same source and were not masked in any way. The reason for this unsophisticated method of self attention was time constraints, and this was displayed in its poor performance. </p>
+
+    <p class="pd">Lastly, stacked attention, which was the combination of self-attention on the decoder as well as encoder-decoder attention, saw a very similar result to the self attention on encoder output. This is likely a result that has been dragged down by the poor performing self attention encoder. </p>
+
+    <img class="tables" src="../img/knowledge/4table .png">
+
+    <h3>Ablation Study - different stacked layers</h3>
+
+    <p class="pd">As can be seen in Table 4, 1 stacked LSTM layer provided the best performance with an $F_1$ of 80.60. The next best performing number of stacked layers was 2 at 78.16, followed by 4 at 67.99. Interestingly, stacking layers (for our selected evaluation hyper-parameters) seemed to have a negative effect on the validation performance of our base model. One potential reason for this performance degradation is that with 4 stacked-layers, the model may not be able to learn enough from the training data with only 2 epochs. It's also possible that the model is over-fitting due to being 4 layers deep. </p>
+
+    <img class="tables" src="../img/knowledge/5table .png">
+
+    <h3>Ablation Study - with/without CRF</h3>
+
+    <p class="pd">We conducted experiments for models with and without CRF attachments. As can be seen in Table 5, the CRF attachment has a significant impact on the performance of the model. Adding a CRF attachment increases the $F_1$ score of a standard Bi-LSTM from 74.33 to 79.09. Similarly, adding a CRF attachment to a Bi-LSTM + encoder-decoder with attention improves the $F_1$ score from 77.10 to 80.60. This is because the CRF attachment ensures that ``inside'' NER tags do not proceed ``beginning'' NER tags in the IOB NER encoding method.</p>
+
+    <img class="tables" src="../img/knowledge/6table .png"> 
+
+     -->
+
+  </body>
+</html>
