@@ -41,22 +41,22 @@ h2 {
 h3 {
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 30px !important;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
   color: white;
 }
 
 h4 {
   font-family: "EB Garamond" !important, sans-serif;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
   color: white;
 }
 
 .hh5 {
   font-family: "EB Garamond" !important, sans-serif;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
   color: white;
 }
 
@@ -64,8 +64,8 @@ h4 {
   color: white;
   font-family: "EB Garamond" !important, sans-serif;
   font-size: 20px !important;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
 }
 
 .flex-container {
@@ -86,7 +86,7 @@ h4 {
 }
 
 .home {
-  margin-left: 1%;
+  margin-left: 1.75%;
   margin-top: 3%;
   margin-right: -15%;
   width: 5%;
@@ -95,10 +95,10 @@ h4 {
   border-radius: 10vw;
   opacity: 0.8;
   transition: 0.3s;
+  float: left;
   position: sticky;
   position: -webkit-sticky; /* Safari */
   top: 0;
-  float: left;
 }
 
 .home-img {
@@ -106,6 +106,12 @@ h4 {
   margin-top: 20%;
   /* width: ; */
   height: auto;
+}
+
+#home {
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0;
 }
 
 #highlight {
@@ -321,8 +327,16 @@ form {
 }
 
 @media only screen and (max-width: 700px) {
+  .home {
+    display: none;
+  }
+
   .home-img {
-    margin-top: 10%;
+    display: none;
+  }
+
+  #home {
+    display: none;
   }
 
   .item {
@@ -357,18 +371,4 @@ form {
 
 .disabled {
   pointer-events: none;
-}
-
-@media only screen and (max-width: 600px) {
-  .home-img {
-    margin-top: -10%;
-    margin-left: 27.5%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .home-img {
-    margin-top: -20%;
-    margin-left: 27.5%;
-  }
 }
