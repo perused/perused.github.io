@@ -68,6 +68,15 @@ h4 {
   margin-right: 9vw;
 }
 
+.project-hyperlink {
+  color: #3cff00;
+  text-decoration: none;
+}
+
+.project-hyperlink:hover {
+  color: aqua;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;

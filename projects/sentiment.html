@@ -16,23 +16,71 @@
 
     <h1>Sentiment Analyser</h1>
 
+    <p class="pd">Using data obtained from tens of thousands of Tweets, classify whether each tweet has positive or negative sentiment using various types of bidirectional sequence to sequence models (RNN, LSTM, GRU).</p>
+
     <img class="jeff" src="../img/gifs/sentiment.gif">
-
-    <h3>Description</h3>
-
-    <p class="pd">Using data obtained from tens of thousands of Tweets, classify whether each tweet has positive or negative sentiment.</p>
 
     <h3>Pre-Processing</h3>
 
     <p class="pd">Writing soon...</p>
 
+    <!-- # extract the sentence for cleaning
+    # sentence is lowercased for normalisation purposes
+    # removing '#' from hashtags and numbers so that we are left with words only, no hashes or numbers mixed in since they hold no sentiment
+    # removing email addresses since they hold no sentiment: credit to this website for this regex: https://www.tutorialspoint.com/Extracting-email-addresses-using-regular-expressions-in-Python
+    # tokenise the sentence so that words may easily be transformed into one hot vectors
+    # emojis are tokenised properly since we use tweet tokeniser
+    # remove stop words because they hold no sentiment
+    # remove usernames (e.g "@hello") because they hold no sentiment and we don't want the semantics of the username considered (e.g "@angry")
+    # remove non-emoji punctionation because they hold no sentiment
+    # remove links (e.g "http...") because they hold no sentiment
+    # now update our final sentences list with the cleaned sentence -->
+
     <h3>Embeddings</h3>
 
     <p class="pd">Writing soon...</p>
 
+    <!-- I have decided to implement FastText with SkipGram. 
+  
+    Reason for FastText: FastText uses ngrams which will be very helpful for embedding slang and typos, which is common in Twitter data, and thus less words will be OOV. 
+
+    Reason for SkipGram: SkipGram predicts the context words by using the main word, whereas CBOW predicts the main word by using context words. According to the original paper (https://arxiv.org/pdf/1301.3781.pdf), SkipGram is better for less frequent words than CBOW. CBOW, in comparison, is better at representing more frequent words. Since the Twitter data contains a diverse range of words including less frequently seen slang and swear words, I have decided to choose SkipGram since it can better represent less frequently seen words.
+
+    importing TED talk data since it has a large amount of words and training on it will therefore make our embeddings more accurate than if we were to just
+    use the twitter data alone, since the twitter data is not very large. 
+
+    embedding_dimension = 220
+    # window size: theoretical justification - chose a window size between 2-15 since I am more interested in word embeddings that can demonstrate interchangeable words than I am for relatedness of words. this is because we are concerned with the semantics of each word and synonyms hold more meaning than related words
+    window_size = 6
+    # min count: theoretical justification - the model ignores words only seen once since they can be nonsensical in the twitter data. If they are seen twice they are more likely to hold some meaning
+    min_count = 2
+    # num workers: theoretical justification - faster training on a multicore machine. Most computers have four cores so four threads are used to train. 
+    num_workers = 4 -->
+
     <h3>Model</h3>
 
     <p class="pd">Writing soon...</p> 
+
+    <!-- I have created a biRNN, biLSTM and biGRU so that I can evaluate the performances of each model 
+    
+    class Bi_LSTM(nn.Module):
+    def __init__(self, n_hidden, dropout_rate):
+      super(Bi_LSTM, self).__init__()
+      self.lstm = nn.LSTM(n_input, n_hidden, batch_first=True, dropout=dropout_rate, bidirectional=True)  
+      self.linear = nn.Linear(n_hidden*2, n_class)
+
+    def forward(self, x):
+      _, (h_n, c_n) = self.lstm(x)
+      output = torch.cat((h_n[0,:,:], h_n[1,:,:]), 1)
+      return self.linear(output)
+
+    criterion = nn.CrossEntropyLoss()
+
+    # define each of our models and their respective optimiser, using Adam for all, justified in section 3.3
+    birnn_model = Bi_RNN(n_hidden, dropout_rate).to(device)
+    birnn_optimizer = optim.Adam(birnn_model.parameters(), lr=learning_rate) 
+    -->
+
 
   </body>
 </html>
