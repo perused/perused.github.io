@@ -3,6 +3,7 @@ body {
   width: 100%;
   /* background-image: url("../img/wall5.jpg"); */
   background-image: url("../img/wallpaper/wall2.png");
+  overflow:initial !important;
 }
 
 .project {
@@ -25,6 +26,10 @@ h1 {
   font-size: 10vw !important;
   color: white;
   text-align: center;
+}
+
+.project-title {
+  margin-top: 0px !important;
 }
 
 h2 {
@@ -78,6 +83,29 @@ h4 {
   box-shadow: 5px 5px 5px #636363;
   opacity: 0.8;
   transition: 0.3s;
+}
+
+.home {
+  margin-left: 1%;
+  margin-top: 3%;
+  margin-right: -15%;
+  width: 5%;
+  height: 5vw;
+  background: rgb(255, 255, 255);
+  border-radius: 10vw;
+  opacity: 0.8;
+  transition: 0.3s;
+  position: sticky;
+  position: -webkit-sticky; /* Safari */
+  top: 0;
+  float: left;
+}
+
+.home-img {
+  margin-left: 25%;
+  margin-top: 20%;
+  /* width: ; */
+  height: auto;
 }
 
 #highlight {
@@ -293,6 +321,10 @@ form {
 }
 
 @media only screen and (max-width: 700px) {
+  .home-img {
+    margin-top: 10%;
+  }
+
   .item {
     width: 40%;
     height: 30vw;
@@ -325,4 +357,18 @@ form {
 
 .disabled {
   pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-img {
+    margin-top: -10%;
+    margin-left: 27.5%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .home-img {
+    margin-top: -20%;
+    margin-left: 27.5%;
+  }
 }
