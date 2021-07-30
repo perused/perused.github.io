@@ -16,13 +16,17 @@
 
     <h1>HTML to HTML5 Converter</h1>
 
-    <p class="pd">As part of some work I was doing in an internship, I was tasked with creating an HTML1 to HTML5 converter. Whilst the code itself has been left with the company, the concept is demonstrated below.</p>
+    <p class="pd">As part of work during my first internship, I was given a problem, outlined below, to which my solution involved the creation of an HTML1 to HTML5 converter.</p>
 
     <img class="jeff" src="../img/knowledge/html.png" alt="Diagram of HTML converter">
 
-    <p class="pd">Essentially, a javascript Gulp task pipeline was created. Firstly, it would scan through the given HTML1 files and pass them to various functions. Each function would replace certain, common aspects of the file with compatible HTML5 code. This included buttons, button groups, titles, backgrounds, sliders and more. It would do this by running a regex on the files and finding these elements. Then, it would rip the necessary HTML5, CSS and Javascript information using further regexes, format it and paste into the output file. This would be done for each and every HTML file and the output would be a converted set of web pages.</p>
+    <h3>Problem</h3>
 
+    <p class="pd">The problem was the issue of repurposing some old software to work on newer, incompatible hardware. Various solutions had already been put forward that were too time consuming (creating brand new software to replace the old software) and too limited in their capabilities. The solution I came up with was to continue using the old software, but to simply convert the output so that it could be usable on the new hardware. This solution was cheap, easy to implement and allowed the extensibility to any kind of capabilities. Thus, it was the perfect solution for the problem at hand.</p>
+      
+    <h3>Description</h3>
 
+    <p class="pd">Essentially, a javascript Gulp task pipeline was created. Firstly, it would scan through the given HTML1 files (outputted by the old software) and pass them to various functions. Each function would replace certain, common aspects of the file with compatible HTML5 code. This included buttons, button groups, titles, backgrounds, sliders and more. It would do this by running a regex on the files and finding these elements. Then, it would rip the necessary HTML5, CSS and Javascript information using further regexes, format it and paste into the output file. This would be done for each and every HTML file and the output would be a converted set of web pages. These were then usable on the new hardware. Voila!</p>
 
   </body>
 </html>
