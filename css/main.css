@@ -148,7 +148,12 @@ img {
 #topology {
   width: 40% !important;
   margin-left: 30% !important;
-  height: auto;
+}
+
+#ner {
+  width: 80% !important;
+  margin-left: 10% !important;
+
 }
 
 .tables {
