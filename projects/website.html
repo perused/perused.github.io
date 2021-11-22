@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"../>
-    <title>Website Project</title>
+    <title>Website Blog</title>
     <link rel="shortcut icon" href="../img/website-icon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -18,25 +18,25 @@
 
     <p class="pd">In the midst of my last exams of my second year, I decided to do some tactical procrastination. This resulted in the purchase of a Raspberry Pi, which I named Jeff. Jeff's first purpose, I decided, would be to host a personal website. I chose to run Jeff in headless mode in order to get some extra practice on the command line. Since I was going to be using Jeff as a web server, I needed to secure him.</p>
 
-    <img class="jeff" src="../img/knowledge/jeff1.jpg" alt="Photo of Jeff">
+    <img class="jeff-smaller" src="../img/knowledge/jeff1.jpg" alt="Photo of Jeff">
 
     <p class="pd">I was once told that security is like an onion: it comes in layers. The layers of the onion protecting Jeff were as follows: I locked the default user, added a new sudoer and my own user, set up SSH access from my computer on a new port (with an SSH config file), disabled SSH access for all new devices, disabled password authentication, set up a firewall that allowed access through my new SSH port, limited SSH attempts to 6 and installed fail2ban (to ban suspicious IP addresses).</p>
 
-    <img class="jeff" src="../img/knowledge/jeff2.jpg" alt="Photo of Jeff">
+    <img class="jeff-smaller" src="../img/knowledge/jeff2.jpg" alt="Photo of Jeff">
 
     <p class="pd">I was aware that there were many website hosting services on the internet, but my reasoning for hosting a website on Jeff was to figure out the inner workings of a web server and to learn as much as possible on the way. Firstly, I set up a static IP address on the Pi, installed NGINX, set up forwarding on my LAN, obtained a free domain name (samjacobs.me) with the GitHub Student Developer Pack, built a website using Flask, set up UWSGI to serve requests between NGINX and Flask and created a service on Jeff to run these requests.</p>
 
-    <p class="pd">The whole project was a huge learning experience for me. I had never used any of these tools before so a lot of research and head bashing was required. I consider this part of the project a success, despite the fact that I did not reach all of my goals (HTTPS encryption, hosting permanently without problems). I also thoroughly enjoyed the whole process. My enjoyment of the project stemmed not only from my new understanding of these technologies, but the process of problem solving throughout (I now have a love-hate relationship with Jeff). Eventually, after hosting for several months, I decided to switch over to GitHub Pages since I could easily enable HTTPS and put some more projects on the internet on a more stable website. In particular, my <a href="traingame.html" target="_blank">Train Game</a>, which I had been planning for a long time!</p>
+    <p class="pd">The whole project was a huge learning experience for me. I had never used any of these tools before so a lot of research and head bashing was required. I consider this part of the project a success, despite the fact that I did not reach all of my goals (HTTPS encryption, hosting permanently without problems). I also thoroughly enjoyed the whole process. My enjoyment of the project stemmed not only from my new understanding of these technologies, but the process of problem solving throughout (I now have a love-hate relationship with Jeff). Eventually, after hosting for several months, I decided to switch over to GitHub Pages since I could easily enable HTTPS and put some more projects on the internet on a more stable website. In particular, my <a class="project-hyperlink" href="traingame.html" target="_blank">Train Game</a>, which I had been planning for a long time!</p>
 
-    <img class="jeff" src="../img/knowledge/jeff3.jpg" alt="Photo of Jeff">
+    <img class="jeff-smaller" src="../img/knowledge/jeff3.jpg" alt="Photo of Jeff">
 
     <p class="pd">What is Jeff up to these days? Well, he has now been repurposed twice.</p>
 
     <p class="pd">Post website project, he was nestled comfortably in my bedside table drawer, permanently plugged into my amp and running Raspotify. This allowed me to play music without plugging an aux cord into any additional devices.</p>
 
-    <p class="pd">2020 January update: He has been removed from my comfortable bedside table draw and is acting as a DNS server whilst running <a href="https://pi-hole.net/" target="_blank">Pi-Hole</a>, which blocks advertisements from a list of known advertising domain names.</p>
+    <p class="pd">2020 January update: He has been removed from my comfortable bedside table draw and is acting as a DNS server whilst running <a class="project-hyperlink" href="https://pi-hole.net/" target="_blank">Pi-Hole</a>, which blocks advertisements from a list of known advertising domain names.</p>
 
-    <p class="pd">2020 November update: He has been rebooted into a custom OpenHABian image to run a living, breathing SmartHome suite with various smart devices in my home. Project page for this update <a href="smarthome.html" target="_blank">can be found here.</a></p>
+    <p class="pd">2020 November update: He has been rebooted into a custom OpenHABian image to run a living, breathing SmartHome suite with various smart devices in my home. Project page for this update <a class="project-hyperlink" href="smarthome.html" target="_blank">can be found here.</a></p>
 
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Smart Home Project</title>
+    <title>Smart Home</title>
     <link rel="shortcut icon" href="../img/website-icon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -30,13 +30,13 @@
 
     <p class="pd">An example Node-RED feature can be seen below. This feature has the functionality of flashing the lights and playing one minute of music once per hour to encourage the occupant to get up and stretch. It has been included to demonstrate the basic functionality of Node-RED and its similarity to control flow diagrams. The logic follows as such: every hour, if it is day time, then send a signal to the lights to turn on for 0.5 seconds and turn off for 0.5 seconds twice as well as play some gentle music on the ChromeCast device for 60 seconds.</p>
 
-    <img class="jeff" src="../img/knowledge/home2.png">
+    <img class="jeff-smaller" src="../img/knowledge/home2.png">
 
     <p class="pd">Later in development, more design additions came in order to support integration of all the separate features of the smart home in a holistic manner. The team designed a finite state machine (FSM), implemented in Node-RED, in order to achieve this. It will be explained in full later since the rest of the design needs to be outlined first.</p>
 
     <p class="pd">The FSM can be seen and explained below.</p> 
 
-    <img class="jeff" src="../img/knowledge/home3.png">
+    <img class="jeff-smallest" src="../img/knowledge/home3.png">
 
     <p class="pd">The smart home hub, otherwise known as the Raspberry Pi, is composed of two main softwares: OpenHAB and Node-RED. This hub will control a series of devices based on the aforementioned circadian rhythm plan. The devices the system interacts with are lights, a motion/temperature/light sensor, TP-link plugs, a Chrome Cast and a Google Nest. All the devices can interface with their relevant OpenHAB bindings directly except for the lights and the sensor. The lights require an external piece of software to run in the Raspberry Pi, the MQTT Broker, to interact with OpenHAB. The sensor requires a Z-Wave Dongle plugged into the Raspberry Pi, which communicates between the two.</p>
 
@@ -44,7 +44,7 @@
 
     <p class="pd">Node-RED also provides capability for a front end interface, which has been utilised to ask the user for their wake up time. This enables logic to allow the team to set the occupant a regular sleep time, which is at least eight and a half hours before the occupant’s wake up time. This interface can be seen below.</p>
 
-    <img class="jeff" src="../img/knowledge/home4.png">
+    <img class="jeff-smaller" src="../img/knowledge/home4.png">
 
     <p class="pd">The method in which Node-RED’s features are continually checked and run is through the FSM. The FSM works like a global clock that keeps track and transitions between four states: day, night, dim and wake state. Whenever the system reaches one of these states, the relevant part of Node-RED is pinged and all features will be woken up to check if they need to be triggered. If any feature tries to trigger itself while the FSM is in the wrong state, it will be denied. There are separate flows set up in Node-RED that handle the transition between FSM states.</p>
 
@@ -52,7 +52,7 @@
 
     <p class="pd">Here is the final design of the smart home.</p>
 
-    <img class="jeff" src="../img/knowledge/home1.png">
+    <img class="jeff-smaller" src="../img/knowledge/home1.png">
 
   </body>
 </html>

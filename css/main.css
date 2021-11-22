@@ -145,6 +145,22 @@ img {
   height: auto !important;
 }
 
+.jeff-smaller {
+  width: 40% !important;
+  margin-left: 30% !important;
+  margin-right: 30% !important;
+  margin-bottom: 30px !important;
+  height: auto !important;
+}
+
+.jeff-smallest {
+  width: 20% !important;
+  margin-left: 40% !important;
+  margin-right: 40% !important;
+  margin-bottom: 30px !important;
+  height: auto !important;
+}
+
 #topology {
   width: 40% !important;
   margin-left: 30% !important;
