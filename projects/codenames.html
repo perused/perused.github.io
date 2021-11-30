@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Codenames Bot</title>
+    <link rel="shortcut icon" href="../img/website-icon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+  </head>
+  <body class="project">
+
+    <div class="flex" id="home">
+      <a class="home" href="../index.html" title="Go Home"><img class="home-img" src="../img/home.png"></a>
+    </div>
+
+    <h1>Codenames Bot</h1>
+
+    <p class="pd">A bot that can play as a player or a spymaster in the boardgame known as <a class="project-hyperlink" href="https://en.wikipedia.org/wiki/Codenames_(board_game)" target="_blank">Codenames.</a></p>
+
+    <img class="jeff-smaller" src="../img/gifs/codenames.gif" alt="Gif of the project">
+
+    <h3>Description</h3>
+
+    <p class="pd">By using the cosine similarity between <a class="project-hyperlink" href="https://nlp.stanford.edu/projects/glove/" target="_blank">GloVe</a> word vectors, it is possible to gauge how semantically different two words are. Using this notion, it becomes plausible that a computer could calculate cosine similarities to either guess or give a clue about the cards on the table in a game of Codenames. So far, the bot is a pretty good player and a fairly lousy giver of clues. This is because word vectors don't have the capability to capture nuance and also, in my experience, knowing the personality of the person giving the clue is helpful for guessing; the bot doesn't have much of a personality.</p>
+
+  </body>
+</html>

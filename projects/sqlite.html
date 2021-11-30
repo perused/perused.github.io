@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>SQLite to T-SQL</title>
+    <link rel="shortcut icon" href="../img/website-icon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+  </head>
+  <body class="project">
+
+    <div class="flex" id="home">
+      <a class="home" href="../index.html" title="Go Home"><img class="home-img" src="../img/home.png"></a>
+    </div>
+
+    <h1>SQLite to T-SQL</h1>
+
+    <p class="pd">A program that converts an SQLite schema into a T-SQL graph as per <a class="project-hyperlink" href="https://docs.microsoft.com/en-us/sql/relational-databases/graphs/sql-graph-overview?view=sql-server-ver15" target="_blank">Microsoft SQL-Graphs</a>.</p>
+
+    <img class="jeff" src="../img/gifs/sqlite.gif" alt="Gif of the project">
+
+    <h3>Description</h3>
+
+    <p class="pd">When exploring the pathways for creating <a class="project-hyperlink" href="./thesis.html" target="_blank">Dom2GE</a>, it became necessary to see how SQL could be represented as a graph. One option was to use T-SQL graphs. However, the schemas being worked with were written in SQLite. In order to determine the efficacy of T-SQL graphs, a conversion from SQLite schemas to T-SQL graph schemas was created. Each node was a row in a table and each edge is constructed between nodes. It is possible to tweak the program to allow edges to only be between primary and foreign keys as well.</p>
+
+    <p class="pd">In the end, a heterogeneous graph was used to represent SQL in the Dom2GE methodology. However, pathways such as this one are still considered as important future work for improving upon the heterogeneous graph representation.</p>
+
+    <p class="pd">Since this branch of the project never reached the final stages, the codebase is still littered with comments and requires refactoring. Regardless, the repository can be viewed <a class="project-hyperlink" href="https://github.com/perused/sqlite_to_graph_t_sql" target="_blank">here.</a></p>
+
+  </body>
+</html>

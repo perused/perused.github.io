@@ -22,15 +22,11 @@
 
     <h3>Description</h3>
 
-    <p class="pd">Coming soon...</p>
+    <p class="pd">The aim of the program is, given a theoretical fireplace in a two dimensional room, to model the distribution of heat over time. With a fireplace that starts at a temperature of 100 celcius and walls maintaining a temperature of 20 celcius, each number in the GIF displayed above represents the temperature increasing across the room.</p>
+      
+    <p class="pd">This implementation was completed using various techniques: a sequential approach storing the room as a two dimensional array, a parallel version of this same approach, a sequential approach storing the room as a three dimensional array, a parallel version of this same approach and finally some ablations of scheduling policies using a three dimensional, parallel approach. Parallelism was achieved using the OpenMP library in C. Each of these approaches had two, four and eight threads applied to them.</p>
 
-    <h3>Approaches</h3>
-
-    <p class="pd">Coming soon...</p>
-
-    <h3>Results</h3>
-
-    <p class="pd">Coming soon...</p>
+    <p class="pd">Each approach was timed and run five times. It was found that a three dimensional implementation using two or four threads was the fastest. However, it should be noted that this program was run on a four core machine, meaning that the benefits of eight threads could not be measured. It can be theorised, however, that the overhead of creating additional threads has caused the two thread solution to be competitive with the four thread solution.</p>
 
   </body>
 </html>
