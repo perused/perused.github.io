@@ -67,25 +67,24 @@ function submitNums(cur) {
     children[0].remove();
   }
 
-  // not working, why not?
   // add numbers to modal title
-  // document.getElementById("myModalLabel").value = "Results for " + cur.num0.value + ", " + cur.num1.value + ", " + cur.num2.value + ", " + cur.num3.value; 
-
+  document.getElementById("label").innerHTML = `Results for '${cur.num0.value}, ${cur.num1.value}, ${cur.num2.value}, ${cur.num3.value}'`; 
+  
   // retrieve numbers from form
   var a = parseInt(cur.num0.value);
   var b = parseInt(cur.num1.value);
   var c = parseInt(cur.num2.value);
   var d = parseInt(cur.num3.value);
-
+  
   // clear numbers from form
   document.getElementById("num0").value = null;
   document.getElementById("num1").value = null;
   document.getElementById("num2").value = null;
   document.getElementById("num3").value = null;
-
+  
   // calculate results
   calculateResults(a, b, c, d);
-
+  
   // if there are no results, let the user know
   var results = document.getElementById("results");
   if (results.childElementCount == 0) {
