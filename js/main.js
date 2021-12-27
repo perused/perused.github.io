@@ -103,6 +103,10 @@ function calculateResults(a, b, c, d) {
   // a . b . c . d
   // writeToModal("Sitch 1 (for testing purposes)", "result");
   sitchOne([a, b, c, d], 1, a, a);
+
+  // a . b . c . d
+  // writeToModal("Sitch 1 (negative) (for testing purposes)", "result");
+  sitchOne([-a, b, c, d], 1, `-${a}`, -a);
   
   // a . (b . c) . d
   // writeToModal("Sitch 2 (for testing purposes)", "result");
